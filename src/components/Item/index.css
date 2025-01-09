@@ -1,6 +1,7 @@
 li label {
   float: left;
   cursor: pointer;
+  padding: 0 10px;
 }
 li label li input {
   vertical-align: middle;
@@ -23,4 +24,23 @@ ul {
   list-style-type: none;
   display: flex;
   flex-direction: column;
+  position: relative;
+  padding: 10px;
+}
+li {
+  position: relative;
+  padding: 10px 0;
+}
+
+li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0; /* 分割线在元素顶部 */
+  height: 0.5px; /* 分割线高度 */
+  background-color: #ddd; /* 分割线颜色 */
+}
+li:first-child::before {
+  display: none; /* 不显示第一个元素的上方分割线 */
 }
