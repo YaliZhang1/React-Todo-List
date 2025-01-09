@@ -40,14 +40,44 @@ export default class App extends Component {
     });
     this.setState({ todos: newTodos }); //update the status
   };
+  // deleteTodo for delete one todo item, the parameter is id
+  deleteTodo = (id, name) => {
+    const { todos } = this.state; //get old todos
+    const newTodos = todos.filter((todoObj) => todoObj.id !== id); //delete one todo
+
+    this.setState({ todos: newTodos }); //update the status
+  };
+  // checkAllTodo for check all
+  checkAllTodo = (done) => {
+    const { todos } = this.state;
+    const newTodos = todos.map((todoObj) => {
+      return { ...todoObj, done };
+    });
+    this.setState({ todos: newTodos });
+  };
+  // clearAllDone for clear all done todo item
+  clearAllDone = () => {
+    const { todos } = this.state;
+    const newTodos = todos.filter((todoObj) => !todoObj.done);
+    this.setState({ todos: newTodos });
+  };
   render() {
     const { todos } = this.state;
     return (
       <div className="todo-container">
         <div className="todo-wrap">
+          {/* App有三个孩子，下面是它分别给它的三个孩子传数组或者函数，让孩子们可以在自己的组件里面使用 */}
           <Header addTodo={this.addTodo} />
-          <List todos={todos} updateTodo={this.updateTodo} />
-          <Footer />
+          <List
+            todos={todos} // App给List传了一个数组todos
+            updateTodo={this.updateTodo} //App给List传了一个函数updateTodo
+            deleteTodo={this.deleteTodo} //App给List传了一个函数deleteTodo
+          />
+          <Footer
+            todos={todos}
+            checkAllTodo={this.checkAllTodo}
+            clearAllDone={this.clearAllDone}
+          />
           {/* Add your todo components here */}
           {/* <Todo /> */}
         </div>

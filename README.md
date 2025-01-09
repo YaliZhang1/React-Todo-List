@@ -1,7 +1,3 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Available Scripts
 
 In the project directory, you can run:
@@ -68,3 +64,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### 动态初始化列表，如何确定将数据放在哪个组件的 state 中？
+
+1.某个组件使用：放在自身的 state 中。 2.某些组件使用：放在他们共同的父组件 state 中（状态提升）
+
+### 父子之间通信：
+
+1.父传子：通过 props 传递。 2.子传父：通过 props 传递，要求父亲提前给子传递一个函数
+
+### 注意 defaultChecked 和 checked 的区别
+
+类似的还有：defaultValue 和 value
+
+### 状态在哪里，操作方法就在哪里
